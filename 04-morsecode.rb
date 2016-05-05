@@ -86,24 +86,28 @@ def morse_encode(str)
 end
 
 def morse_encode_word(word)
-	letters = word.split
+	letters = word.split("")
 	array = letters.map {|x| MORSE_CODE[x]}
 	array.join(" ")
 end
 
-def morse_dencode(str)
-	arrayer = str.split
-	combiner = arrayer.map {|word| morse_encode_word(word) }
-	combiner.join("  ")
+# === TEST ==== TEST ==== TEST === TEST === TEST === TEST === TEST === TEST ===
+
+def morse_decode(str)
+	combiner.split("  ")
+	combiner = arrayer.map {|word| morse_decode_word(word) }
+	arrayer = str.join(" ")
 end
 
-def morse_dencode_word(word)
-	letters = word.split
+def morse_decode_word(word)
+	array.split(" ")
 	array = letters.map {|x| MORSE_CODE[x]}
-	array.join(" ")
+	letters = word.join(" ")
 end
 
-# =============================================================================
+# === TEST ==== TEST ==== TEST === TEST === TEST === TEST === TEST === TEST ===
+
+# == VERIFY == VERIFY == VERIFY == VERIFY == VERIFY == VERIFY == VERIFY ==
 
 puts("\nTests for #morse_encode")
 puts("===============================================")
@@ -112,3 +116,15 @@ puts "morse_encode(\"cat\") == \"-.-. .- -\": "  + (morse_encode("cat") == "-.-.
 puts "morse_encode(\"cat in hat\") == \"-.-. .- -  .. -.  .... .- -\": "  + (morse_encode("cat in hat") == "-.-. .- -  .. -.  .... .- -").to_s
 
 puts("===============================================")
+
+# === TEST ==== TEST ==== TEST === TEST === TEST === TEST === TEST === TEST ===
+
+puts("\nTests for #morse_encode")
+puts("===============================================")
+puts (morse_decode("--.-") == "q").to_s
+puts (morse_decode("-.-. .- -") == "cat").to_s
+puts (morse_decode("-.-. .- -  .. -.  .... .- -") == "cat in hat").to_s
+
+puts("===============================================")
+
+# === TEST ==== TEST ==== TEST === TEST === TEST === TEST === TEST === TEST ===

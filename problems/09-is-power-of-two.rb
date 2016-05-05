@@ -8,6 +8,7 @@
 # Difficulty: medium.
 
 def is_power_of_two?(num)
+	num != 0 && num & (num - 1) == 0
 end
 
 # These are tests to check that your code is working. After writing

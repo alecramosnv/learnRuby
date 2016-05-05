@@ -5,15 +5,27 @@
 # Difficulty: medium.
 
 def two_sum(nums)
-	
+	i = 0
+	j = 0
+	while i < nums.length
+		while j < nums.length
+			if nums[i] + nums[j] == 0
+				return [i, j]
+			end
+			j+= 1
+		end
+		i += 1
+	  j = 0   # Here
+	end
+	return nil
 end
 
 # These are tests to check that your code is working. After writing
 # your solution, they should all print true.
 
 puts(
-  'two_sum([1, 3, 5, -3]) == [1, 3]: ' + (two_sum([1, 3, 5, -3]) == [1, 3]).to_s
-)
+	'two_sum([1, 3, 5, -3]) == [1, 3]: ' + (two_sum([1, 3, 5, -3]) == [1, 3]).to_s
+	)
 puts(
-  'two_sum([1, 3, 5]) == nil: ' + (two_sum([1, 3, 5]) == nil).to_s
-)
+	'two_sum([1, 3, 5]) == nil: ' + (two_sum([1, 3, 5]) == nil).to_s
+	)

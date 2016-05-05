@@ -23,6 +23,19 @@ def is_prime?(number)
 end
 
 def nth_prime(n)
+  prime_num = 0
+
+  i = 2
+  while true
+    if is_prime?(i)
+      prime_num += 1
+      if prime_num == n
+        return i
+      end
+    end
+
+    i += 1
+  end
 end
 
 # These are tests to check that your code is working. After writing

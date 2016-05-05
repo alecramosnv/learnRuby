@@ -23,17 +23,40 @@
 # Difficulty: hard. Because this problem relies on outside
 # information, we would not give it to you on the timed challenge. :-)
 
-def caesar_cipher(offset, string)
+def caesar_cipher(shift, string)
+	letters = string.split("")
+	shifted_string = []
+	punctuation = [",", " ", ".", "!", "?", "'", ";", ":"]
+	letters.each do |letter|
+		if punctuation.include?(letter)
+			shifted_value = letter
+		else
+			if letter.ord > "Z".ord 
+				shifted_value = letter.ord + shift
+				if shifted_value > "z".ord 
+					shifted_value -= 26 
+				end
+			else
+				shifted_value = letter.ord + shift 
+				if shifted_value > "Z".ord 
+					shifted_value -= 26 
+				end
+			end
+			shifted_value = shifted_value.chr
+		end
+		shifted_string.push(shifted_value)
+	end
+	shifted_string.join
 end
 
 # These are tests to check that your code is working. After writing
 # your solution, they should all print true.
 
 puts(
-  'caesar_cipher(3, "abc") == "def": ' +
-  (caesar_cipher(3, 'abc') == 'def').to_s
-)
+	'caesar_cipher(3, "abc") == "def": ' +
+	(caesar_cipher(3, 'abc') == 'def').to_s
+	)
 puts(
-  'caesar_cipher(3, "abc xyz") == "def abc": ' +
-  (caesar_cipher(3, 'abc xyz') == 'def abc').to_s
-)
+	'caesar_cipher(3, "abc xyz") == "def abc": ' +
+	(caesar_cipher(3, 'abc xyz') == 'def abc').to_s
+	)

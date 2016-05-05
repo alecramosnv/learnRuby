@@ -73,7 +73,10 @@ MORSE_CODE = {
 	"7" => "--...",
 	"8" => "---..",
 	"9" => "----.",
-	"0" => "-----"
+	"0" => "-----",
+	"." => ".-.-.-",
+	"/" => "-..-.",
+	"," => "--..--"
 }
 
 def morse_encode(str)
@@ -88,6 +91,19 @@ def morse_encode_word(word)
 	array.join(" ")
 end
 
+def morse_dencode(str)
+	arrayer = str.split
+	combiner = arrayer.map {|word| morse_encode_word(word) }
+	combiner.join("  ")
+end
+
+def morse_dencode_word(word)
+	letters = word.split
+	array = letters.map {|x| MORSE_CODE[x]}
+	array.join(" ")
+end
+
+# =============================================================================
 
 puts("\nTests for #morse_encode")
 puts("===============================================")
